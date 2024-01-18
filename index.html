@@ -74,7 +74,7 @@
     </div>
     <script src="arcamera.js" type="text/javascript"></script>
     <script src="itracker.js" type="text/javascript"></script>
-    <script src="Build/fulltracking.loader.js"></script>
+    <script src="Build/imagetracker.loader.js"></script>
     <script>
             var unityCanvas = document.querySelector("#unity-canvas");
             var videoCanvas = document.querySelector("#video-canvas");
@@ -100,9 +100,9 @@
                 
                 document.getElementById("startARDiv").style.display = "none";
                 createUnityInstance(document.querySelector("#unity-canvas"), {
-                    dataUrl: "Build/fulltracking.data.gz",
-                    frameworkUrl: "Build/fulltracking.framework.js.gz",
-                    codeUrl: "Build/fulltracking.wasm.gz",
+                    dataUrl: "Build/imagetracker.data.unityweb",
+                    frameworkUrl: "Build/imagetracker.framework.js.unityweb",
+                    codeUrl: "Build/imagetracker.wasm.unityweb",
                     streamingAssetsUrl: "StreamingAssets",
                     companyName: "DefaultCompany",
                     productName: "PillarWebglAR",
