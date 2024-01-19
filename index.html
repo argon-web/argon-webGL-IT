@@ -34,7 +34,37 @@
 </head>
 <body>
     <!--IMAGETARGETS-->
-		<imagetarget id='image' src='https://storage.googleapis.com/argon-web/images.jpg'></imagetarget>
+    <imagetarget id='image'></imagetarget>
+    
+    <script>
+        // Function to get the current URL
+        function getCurrentURL() {
+            return window.location.href;
+        }
+    
+        // Function to parse the URL and extract the parameter
+        function parseURLParameters(url) {
+            const questionMarkIndex = url.indexOf('?');
+            if (questionMarkIndex !== -1 && questionMarkIndex < url.length - 1) {
+                return url.substring(questionMarkIndex + 1);
+            } else {
+                // Default value if no parameter is found
+                return "images"; // You can change this to a default image name if needed
+            }
+        }
+    
+        // Set the src attribute of imagetarget
+        function setImagetargetSrc() {
+            const baseUrl = "https://storage.googleapis.com/argon-web/";
+            const url = getCurrentURL();
+            const imageName = parseURLParameters(url);
+            const fullImageUrl = baseUrl + imageName + ".jpeg";
+            document.getElementById('image').setAttribute('src', fullImageUrl);
+        }
+    
+        // Call the function to set the src on page load
+        setImagetargetSrc();
+    </script>    
 
     <video id="webcam-video" muted autoplay playsinline style="width:1px;position:absolute"></video>
     <!-- <video id="webcam-video" muted autoplay playsinline style="width:100%; height:100%; object-fit:cover; position:absolute"></video> -->
